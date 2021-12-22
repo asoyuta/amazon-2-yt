@@ -3,13 +3,13 @@ import Header from '../../components/Header'
 
 function signIn({ providers }) {
   return (
-    <>
+    <div>
       <Header />
 
-      <div className="flex flex-col items-center justify-center min-h-screen py-2 -mt-56 px-14 text-center">
+      <div className="flex flex-col items-center min-h-screen py-2 px-14 text-center">
         <img className="bg-amazon_blue w-80 p-2" src="https://links.papareact.com/f90" alt="" />
         <p className="font-xs italic">This is not a REAL app, it is built for practice only</p>
-        <div className="mt-40">
+        <div className="mt-10">
           {Object.values(providers).map((provider) => (
             <div key={provider.name}>
               <button
@@ -22,7 +22,7 @@ function signIn({ providers }) {
           ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
