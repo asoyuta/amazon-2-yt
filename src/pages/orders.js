@@ -17,7 +17,7 @@ function Orders({ orders }) {
         {session ? <h2>{orders.length} Orders</h2> : <h2>Please sign in to see your orders</h2>}
 
         <div className="mt-5 space-y-4">
-          {orders?.map(({ id, amount, amountShipping, items, timestamp, images }) => (
+          {/* {orders?.map(({ id, amount, amountShipping, items, timestamp, images }) => (
             <Order
               key={id}
               id={id}
@@ -27,7 +27,7 @@ function Orders({ orders }) {
               timestamp={timestamp}
               images={images}
             />
-          ))}
+          ))} */}
         </div>
       </main>
     </div>
