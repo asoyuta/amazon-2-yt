@@ -6,6 +6,7 @@ import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import Order from '../components/Order'
 
 function Orders({ orders }) {
+  console.log(orders)
   const { data: session } = useSession()
 
   return (
