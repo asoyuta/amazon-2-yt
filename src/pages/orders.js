@@ -48,6 +48,8 @@ export async function getServerSideProps(context) {
     }
   }
 
+  console.log(session)
+
   // Firebase db
   const stripeOrders = await getDocs(
     query(collection(db, 'users', session.user.email, 'orders'), orderBy('timestamp', 'desc'))
