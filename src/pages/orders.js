@@ -2,7 +2,7 @@ import { getSession, useSession } from 'next-auth/react'
 import Header from '../components/Header'
 import { db } from '../../firebase'
 import moment from 'moment'
-import { collection, getDocs, orderBy, query } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, onSnapshot, orderBy, query } from 'firebase/firestore'
 import Order from '../components/Order'
 
 function Orders({ orders }) {
@@ -48,12 +48,12 @@ export async function getServerSideProps(context) {
     }
   }
 
-  console.log(session)
-
   // Firebase db
-  const stripeOrders = await getDocs(
-    query(collection(db, 'users', session.user.email, 'orders'), orderBy('timestamp', 'desc'))
-  )
+  // const stripeOrders = await getDocs(
+  //   query(collection(db, 'users', session.user.email, 'orders'), orderBy('timestamp', 'desc'))
+  // )
+
+  const stripeOrders = await getDocs(collection(db, 'users', session.user.email, 'orders'))
 
   // Stripe orders
   const orders = await Promise.all(
@@ -70,6 +70,8 @@ export async function getServerSideProps(context) {
       ).data,
     }))
   )
+
+  console.log(orders)
 
   return {
     props: {
