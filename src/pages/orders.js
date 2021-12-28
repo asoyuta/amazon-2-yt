@@ -69,8 +69,6 @@ export async function getServerSideProps(context) {
     }))
   )
 
-  console.log(orders)
-
   return {
     props: {
       orders,
