@@ -1,13 +1,8 @@
 import { buffer } from 'micro'
-import * as admin from 'firebase-admin'
+import admin from '../../../firebase/nodeApp'
 
 // Secure a connection to FIREBASE from the backend
-const serviceAccount = require('../../../permissons.json')
-const app = !admin.apps.length
-  ? admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-    })
-  : admin.app()
+const app = admin.app()
 
 // Establish connection to Stripe
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
