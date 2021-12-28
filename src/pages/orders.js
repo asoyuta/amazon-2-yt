@@ -50,10 +50,6 @@ export async function getServerSideProps(context) {
   const db = admin.firestore()
 
   // Firebase db
-  // const stripeOrders = await getDocs(
-  //   query(collection(db, 'users', session.user.email, 'orders'), orderBy('timestamp', 'desc'))
-  // )
-
   const stripeOrders = await db
     .collection('users')
     .doc(session.user.email)
