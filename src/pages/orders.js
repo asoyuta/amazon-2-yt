@@ -1,8 +1,8 @@
 import { getSession, useSession } from 'next-auth/react'
 import Header from '../components/Header'
-import { db } from '../../firebase'
+import { db } from '../../firebase/clientApp'
 import moment from 'moment'
-import { collection, doc, getDoc, getDocs, onSnapshot, orderBy, query } from 'firebase/firestore'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import Order from '../components/Order'
 
 function Orders({ orders }) {
